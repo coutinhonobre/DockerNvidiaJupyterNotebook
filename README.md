@@ -58,4 +58,3 @@ O projeto consiste em um Dockerfile que configura um ambiente com TensorFlow e J
 ## Suporte e Contribuições
 
 Para suporte, dúvidas ou contribuições, por favor, abra uma issue no repositório do projeto.
-# DockerNvidiaJupyterNotebook
