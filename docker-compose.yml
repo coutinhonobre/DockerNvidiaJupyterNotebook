@@ -1,0 +1,22 @@
+version: '3'
+services:
+  cuda-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    runtime: nvidia
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./:/app
+    command: ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+      - JUPYTER_PASSWORD=${JUPYTER_PASSWORD}
+      - JUPYTER_NOTEBOOK_DIR=/home/jovyan/work
+      - NB_UID=1000
+      - NB_GID=100
+      - GRANT_SUDO=yes
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    user: root
